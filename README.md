@@ -24,6 +24,7 @@ Dosey lets a caregiver keep a local list of medicines, log doses, and see the ne
 | 🧾 **Dose history** | Review recorded doses with medicine-name and dose-label snapshots. |
 | 🔔 **Local reminders** | Schedule the next reminder on the device, subject to platform permissions and power settings. |
 | 🌷 **French + Derja** | French interface with an optional Tunisian Derja tone for reminder notifications. |
+| 🧸 **Animated mascot** | Original looping Lottie JSON: Doudou gives a gentle bounce, blink, and sparkle. It pauses when reduced motion is enabled. |
 | 🔒 **Local-first data** | Store app data locally; no account, sync, or app backend. Data is unencrypted. |
 
 <div align="center">
@@ -150,6 +151,7 @@ test/
 | [`flutter_local_notifications`](https://pub.dev/packages/flutter_local_notifications) | Local notification permissions and scheduling. |
 | [`timezone`](https://pub.dev/packages/timezone) | Timezone-aware scheduled dates. |
 | [`flutter_timezone`](https://pub.dev/packages/flutter_timezone) | Reads the device's timezone. |
+| [`lottie`](https://pub.dev/packages/lottie) | Renders the bundled vector mascot animation from JSON. |
 | `cupertino_icons` | Cupertino icon set. |
 | `flutter_test` | Unit and widget tests. |
 | `flutter_lints` | Dart/Flutter lint rules. |
@@ -178,6 +180,8 @@ flutter build apk --debug
 ```
 
 There is no seeded sample-medication mode in the app. New installs open with an empty medicine list; enter your own example data locally if you need to explore the screens.
+
+The animation is authored in `assets/animations/doudou_bounce.json`; it is bundled locally and makes no network request.
 
 ## Known limitations
 
