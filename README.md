@@ -5,10 +5,14 @@
   <p>
     <img alt="Dart SDK" src="https://img.shields.io/badge/Dart-%5E3.10.8-0175C2?logo=dart&logoColor=white" />
     <img alt="Flutter" src="https://img.shields.io/badge/Flutter-app-02569B?logo=flutter&logoColor=white" />
+    <a href="https://github.com/Maher-Tec/Dosey/actions/workflows/flutter.yml"><img alt="Flutter checks" src="https://github.com/Maher-Tec/Dosey/actions/workflows/flutter.yml/badge.svg" /></a>
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-55BFA7.svg" />
     <img alt="Platforms: Android and iOS" src="https://img.shields.io/badge/Platforms-Android%20%7C%20iOS-7D6BC4" />
   </p>
-  <p><a href="https://github.com/Maher-Tec/Dosey">GitHub repository</a></p>
+  <p>
+    <a href="https://github.com/Maher-Tec/Dosey">GitHub repository</a>
+    · <a href="CONTRIBUTING.md">Contributing</a>
+  </p>
 </div>
 
 > **Reminder only, not medical advice. Always follow the label and your doctor.**
