@@ -25,6 +25,13 @@ void main() {
       find.text('Le carnet est prêt\npour ses premiers petits soins'),
       findsOneWidget,
     );
+    expect(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is Semantics && widget.properties.label == 'Dosey logo',
+      ),
+      findsOneWidget,
+    );
     expect(find.text('Example medicine'), findsNothing);
   });
 
