@@ -128,6 +128,52 @@ void main() {
     controller.dispose();
   });
 
+  test('controller rejects a future dose time without mutating data', () async {
+    final lastGivenAt = DateTime.now().subtract(const Duration(hours: 8));
+    final medicine = _medicine(lastGivenAt: lastGivenAt);
+    final storage = _Storage()..medicines = [medicine];
+    final controller = DoseReminderController(storage, _Notifications());
+    await controller.initialize();
+
+    expect(
+      () => controller.recordDose(
+        medicine,
+        givenAt: DateTime.now().add(const Duration(minutes: 5)),
+      ),
+      throwsA(
+        isA<DoseRecordException>().having(
+          (error) => error.failure,
+          'failure',
+          DoseRecordFailure.invalidTime,
+        ),
+      ),
+    );
+    expect(controller.medicines.single.lastGivenAt, lastGivenAt);
+    expect(controller.doses, isEmpty);
+    expect(storage.doses, isEmpty);
+    controller.dispose();
+  });
+
+  test('controller rejects a dose for a missing medicine', () async {
+    final storage = _Storage()..medicines = [_medicine()];
+    final controller = DoseReminderController(storage, _Notifications());
+    await controller.initialize();
+
+    expect(
+      () => controller.recordDose(_medicine(id: 'deleted-medicine')),
+      throwsA(
+        isA<DoseRecordException>().having(
+          (error) => error.failure,
+          'failure',
+          DoseRecordFailure.medicineMissing,
+        ),
+      ),
+    );
+    expect(controller.medicines.single.id, 'med-1');
+    expect(controller.doses, isEmpty);
+    controller.dispose();
+  });
+
   test(
     'system clock change cancels and reschedules only upcoming medicine IDs',
     () async {
