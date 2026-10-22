@@ -68,7 +68,7 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(width: 10),
           Semantics(
             image: true,
-            label: 'Dose Reminder logo',
+            label: 'Dosey logo',
             child: Container(
               width: 112,
               height: 112,
